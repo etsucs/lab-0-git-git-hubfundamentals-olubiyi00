@@ -117,6 +117,5 @@ To learn more about forking, read ["For a Repo"](https://docs.github.com/en/gith
 * [Education community forum](https://education.github.community/)
 * [GitHub community forum](https://github.community/)
 
-## i have finished this lab
-*completed lab 
-*finsihed 
+##finnished lab
+*completed lab
