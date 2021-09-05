@@ -1,0 +1,4 @@
+﻿Build started...
+1>------ Build started: Project: HelloWorld, Configuration: Debug Any CPU ------
+1>HelloWorld -> C:\Users\Owner\source\repos\HelloWorld\HelloWorld\bin\Debug\net5.0\HelloWorld.dll
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
