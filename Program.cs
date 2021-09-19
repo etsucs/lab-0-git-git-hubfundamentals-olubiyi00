@@ -51,7 +51,8 @@ namespace lab2
 						string highNumber = Console.ReadLine();
 						multiplication(Int32.Parse(baseNumber), Int32.Parse(highNumber));
 						break;
-					
+					case 3:
+						memoryBytes();
 
 					case 9:
 						exited = true;
@@ -73,6 +74,7 @@ namespace lab2
 			Console.WriteLine("Enter an option");
 			Console.WriteLine("1. Addition");
 			Console.WriteLine("2. Multiplication");
+			Console.WriteLine("3. Memory Bytes");
 		
 
 		}
@@ -94,6 +96,21 @@ namespace lab2
 			}
 			
                  }
+	         public static void memoryBytes()
+                {
+			Console.WriteLine($"sbyte: size: { sizeof(sbyte) }, Min Value: {sbyte.MinValue} , Max Value: {sbyte.MaxValue}");
+			Console.WriteLine($"byte:  size: { sizeof(byte) },  Min Value: {byte.MinValue} ,  Max value: {byte.MaxValue}");
+			Console.WriteLine($"short: size: { sizeof(short) }, Min value: {short.MinValue} , Max value: {short.MaxValue}");
+			Console.WriteLine($"ushort: size: { sizeof(ushort) }, Min Value: {ushort.MinValue} , Max Value: {ushort.MaxValue}");
+			Console.WriteLine($"int:    size: { sizeof(int) },   Min Value:  {int.MinValue} , Max Value:{int.MaxValue}");
+			Console.WriteLine($"uint:   size:{ sizeof(uint) }, Min Value:  {uint.MinValue} , Max Value:{uint.MaxValue}");
+			Console.WriteLine($"long:   size:{ sizeof(long) } , Min Value: {long.MinValue} , Max Value:{long.MaxValue}");
+			Console.WriteLine($"ulong:  size:{ sizeof(ulong) } , Min Value: {ulong.MinValue} , Max Value:{ulong.MaxValue}");
+			Console.WriteLine($"float:  size:{ sizeof(float) } , Min Value: {float.MinValue} , Max Value:{float.MaxValue}");
+			Console.WriteLine($"double: size:{ sizeof(double) } , Min Value: {double.MinValue} ,Max Value: {double.MaxValue}");
+			Console.WriteLine($"decimal: size:{ sizeof(decimal) } , Min Value: {decimal.MinValue} ,Max Value: {decimal.MaxValue}");
+		}
+
 	    	
 
     }
