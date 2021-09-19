@@ -13,25 +13,25 @@ namespace lab2
                init();
         }
         public static void init()
+	{
+
+		int choice = -1;
+		bool exited = false;
+		while (true)
 		{
-
-			int choice = -1;
-			bool exited = false;
-			while (true)
+			if (exited)
+				break;
+			printMenu();
+			int option = 0;
+			string input = Console.ReadLine();
+			//If user does not enter integer, it will repeatedly ask user to enter integer.
+			while (!(int.TryParse(input, out choice)))
 			{
-				if (exited)
-					break;
-				printMenu();
-				int option = 0;
-				string input = Console.ReadLine();
-				//If user does not enter integer, it will repeatedly ask user to enter integer.
-				while (!(int.TryParse(input, out choice)))
-				{
-					Console.WriteLine("You must enter an integer");
-					input = Console.ReadLine();
+				Console.WriteLine("You must enter an integer");
+				input = Console.ReadLine();
 
-				}
-				choice = Int32.Parse(input);
+			}
+			  choice = Int32.Parse(input);
 
 				Console.WriteLine(" ");
 
@@ -53,6 +53,40 @@ namespace lab2
 						break;
 					case 3:
 						memoryBytes();
+						
+					case 4:
+						
+						while (!(Console.ReadLine()=="esc"))
+                        		{
+							double answer = 0;
+							Console.WriteLine("Enter First Number");
+							string no1 = Console.ReadLine();
+							Console.WriteLine("Enter one of Operation(+ - * / %)");
+							string operation = Console.ReadLine();
+							Console.WriteLine("Enter Second Number");
+							string no2 = Console.ReadLine();
+							Console.WriteLine("Answer: " + functionCalculator(Double.Parse(no1), Double.Parse(no2), operation));
+							Console.WriteLine("");
+							Console.WriteLine("Enter ANS to perform an operation to your answer");
+							Console.WriteLine("Enter esc to exit");
+
+							if (Console.ReadLine() == "ANS")
+
+
+
+						       	answer = functionCalculator(Double.Parse(no1), Double.Parse(no2), operation);
+
+                            				Console.WriteLine("Enter one of Operation(+ - * / %)");
+                            				string operation2 = Console.ReadLine();
+                            				Console.WriteLine("Enter Second Number");
+                            				string secNum = Console.ReadLine();
+                            				Console.WriteLine("Answer: " + additionalFunction(Double.Parse(secNum), operation2, answer));
+
+                          				Console.WriteLine("");
+                            				Console.WriteLine("Enter ANS to perform an operation to your answer");
+                           				Console.WriteLine("Enter esc to exit");
+                       			}
+							break;
 
 					case 9:
 						exited = true;
@@ -65,11 +99,11 @@ namespace lab2
 
 
 			}
-		}
+	}
 
-		// printMenu() Prints all the menu option. This is being called inside while loop of init() method
-		public static void printMenu()
-		{
+	// printMenu() Prints all the menu option. This is being called inside while loop of init() method
+	public static void printMenu()
+	{
 			Console.WriteLine("");
 			Console.WriteLine("Enter an option");
 			Console.WriteLine("1. Addition");
@@ -77,27 +111,27 @@ namespace lab2
 			Console.WriteLine("3. Memory Bytes");
 		
 
-		}
+	}
 
-		public static void addition(int number1, int number2)
-		{
+	public static void addition(int number1, int number2)
+	{
 			int sum = 0;
 			sum = number1 + number2;
 			Console.WriteLine("{" + number1 + "}" + " + " + "{" + number2 + "}" + " = " + "{" + sum + "}");
-		}
-	    	public static void multiplication(int number1, int number2)
-        	{
+	}
+	public static void multiplication(int number1, int number2)
+        {
 			 int output = 0;
 
            		 for (int i = 0; i <= number2; i++)
-            		{
+           		{
 				output = number1 * i;
 				Console.WriteLine(number1 + " * " + i + " = " + output );
 			}
 			
-                 }
-	         public static void memoryBytes()
-                {
+        }
+	public static void memoryBytes()
+        {
 			Console.WriteLine($"sbyte: size: { sizeof(sbyte) }, Min Value: {sbyte.MinValue} , Max Value: {sbyte.MaxValue}");
 			Console.WriteLine($"byte:  size: { sizeof(byte) },  Min Value: {byte.MinValue} ,  Max value: {byte.MaxValue}");
 			Console.WriteLine($"short: size: { sizeof(short) }, Min value: {short.MinValue} , Max value: {short.MaxValue}");
@@ -109,8 +143,82 @@ namespace lab2
 			Console.WriteLine($"float:  size:{ sizeof(float) } , Min Value: {float.MinValue} , Max Value:{float.MaxValue}");
 			Console.WriteLine($"double: size:{ sizeof(double) } , Min Value: {double.MinValue} ,Max Value: {double.MaxValue}");
 			Console.WriteLine($"decimal: size:{ sizeof(decimal) } , Min Value: {decimal.MinValue} ,Max Value: {decimal.MaxValue}");
-		}
+	 }
+	public static double functionCalculator(double number1, double number2, string function)
+         {
+            		double solution = 0;
 
+
+            		if (function == "+")
+           		{
+                		solution = number1 + number2;
+
+            		}
+            		else if (function == "-")
+            		{
+                		solution = number1 - number2;
+
+            		}
+            		else if (function == "*")
+           	       {
+                		solution = number1 * number2;
+
+           	       }
+                       else if (function == "/")
+                       {
+                        	solution = number1 / number2;
+
+                        }
+                       else if (function == "%")
+                       {
+                        	solution = number1 % number2;
+
+                       }
+            
+
+            
+			return solution;
+
+       }
+		 /// <summary>
+		 /// Helper method for the function calculator
+		 /// </summary>
+		 /// <param name="number2"></param>
+		 /// <param name="function"></param>
+		 /// <param name="solution"></param>
+		 /// <returns></returns>
+        private static double additionalFunction(double number2, string function, double solution)
+        {
+           
+                double ans = 0;
+                if (function == "+")
+                {
+                    ans = solution + number2;
+
+                }
+                else if (function == "-")
+                {
+                    ans = solution - number2;
+
+                }
+                else if (function == "*")
+                {
+                    ans = solution * number2;
+
+                }
+                else if (function == "/")
+                {
+                    ans = solution / number2;
+
+                }
+                else if (function == "%")
+                {
+                    ans = solution % number2;
+
+                }
+           
+              return ans;
+	}
 	    	
 
     }
