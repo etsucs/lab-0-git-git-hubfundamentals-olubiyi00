@@ -44,9 +44,14 @@ namespace lab2
 						string secondNumber = Console.ReadLine();
 						addition(Int32.Parse(firstNumber), Int32.Parse(secondNumber));
 						break;
-					
-
+					case 2:
+                        			Console.WriteLine("Enter base number");
+						string baseNumber = Console.ReadLine();
+						Console.WriteLine("Enter highest Number");
+						string highNumber = Console.ReadLine();
+						multiplication(Int32.Parse(baseNumber), Int32.Parse(highNumber));
 						break;
+					
 
 					case 9:
 						exited = true;
@@ -67,6 +72,7 @@ namespace lab2
 			Console.WriteLine("");
 			Console.WriteLine("Enter an option");
 			Console.WriteLine("1. Addition");
+			Console.WriteLine("2. Multiplication");
 		
 
 		}
@@ -77,6 +83,18 @@ namespace lab2
 			sum = number1 + number2;
 			Console.WriteLine("{" + number1 + "}" + " + " + "{" + number2 + "}" + " = " + "{" + sum + "}");
 		}
+	    	public static void multiplication(int number1, int number2)
+        	{
+			 int output = 0;
+
+           		 for (int i = 0; i <= number2; i++)
+            		{
+				output = number1 * i;
+				Console.WriteLine(number1 + " * " + i + " = " + output );
+			}
+			
+                 }
+	    	
 
     }
 }
